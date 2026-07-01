@@ -1,0 +1,79 @@
+<footer class="footer" id="contacto">
+  <div class="shell footer__inner">
+    <div class="footer__info">
+      <div class="footer__brand">
+        <app-logo variant="light" />
+        <p class="footer__tagline">
+          Odontología integral con tecnología digital y trato humano en el corazón de
+          {{ clinic.city }}.
+        </p>
+        <div class="footer__social">
+          <a [href]="clinic.social.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+            <app-icon name="instagram" />
+          </a>
+          <a [href]="clinic.social.facebook" target="_blank" rel="noopener" aria-label="Facebook">
+            <app-icon name="facebook" />
+          </a>
+          <a [href]="'https://wa.me/' + clinic.whatsappHref" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <app-icon name="whatsapp" />
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Enlaces del sitio">
+        <h3 class="footer__heading">Navegación</h3>
+        <ul>
+          @for (link of links; track link.href) {
+            <li><a [href]="link.href">{{ link.label }}</a></li>
+          }
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Contacto</h3>
+        <ul class="footer__contact">
+          <li>
+            <app-icon name="mapPin" />
+            <a [href]="clinic.mapLink" target="_blank" rel="noopener">{{ clinic.address }}</a>
+          </li>
+          <li>
+            <app-icon name="phone" />
+            <a [href]="'tel:' + clinic.phoneHref">{{ clinic.phoneDisplay }}</a>
+          </li>
+          <li>
+            <app-icon name="mail" />
+            <a [href]="'mailto:' + clinic.email">{{ clinic.email }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Horarios</h3>
+        <ul class="footer__hours">
+          @for (h of clinic.hours; track h.day) {
+            <li>
+              <span class="footer__day">{{ h.day }}</span>
+              <span class="footer__time">{{ h.time }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <figure class="footer__map">
+      <iframe
+        [src]="mapUrl"
+        title="Mapa con la ubicación de Clínica Dental Alba en Guadalajara"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </figure>
+  </div>
+
+  <div class="footer__bar">
+    <div class="shell footer__bar-inner">
+      <p>© {{ year }} {{ clinic.name }}. Todos los derechos reservados.</p>
+      <p class="footer__demo">Demo de portafolio · Diego Gómez — datos ilustrativos.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,96 @@
+// ============================================================
+//  Clínica Dental Alba · Tokens de diseño
+//  Paleta en OKLCH. Identidad: luz clínica — blanco puro, azul
+//  marino profundo y un azul acento vivo. Estrategia de color:
+//  Committed — el azul carga la marca (banda navy "drenched" en
+//  CTA y footer), el blanco es la luz del consultorio, no relleno.
+//  Ningún acento fuera del azul.
+// ============================================================
+
+:root {
+  // ---- Superficies (blanco / azul muy claro) ----
+  --bg: oklch(1 0 0);                 // blanco puro — la luz de la clínica
+  --bg-soft: oklch(0.985 0.006 240);  // blanco roto, secciones alternas
+  --surface: oklch(0.98 0.01 240);    // tarjetas, paneles
+  --surface-2: oklch(0.955 0.017 240);// hover / paneles hundidos
+  --sky: oklch(0.93 0.038 235);       // azul claro — fondos de ícono, tints
+  --sky-soft: oklch(0.965 0.02 236);  // velo azul clarísimo
+
+  // ---- Marino profundo (headers, banda drenched, footer) ----
+  --navy: oklch(0.34 0.072 250);      // azul marino — titulares fuertes
+  --navy-deep: oklch(0.27 0.06 252);  // fondo drenched / footer
+  --navy-2: oklch(0.4 0.075 250);     // elevación sobre navy
+
+  // ---- Tinta ----
+  --ink: oklch(0.28 0.03 252);        // texto cuerpo (13:1 sobre blanco)
+  --ink-soft: oklch(0.4 0.03 252);    // sub-texto
+  --muted: oklch(0.52 0.032 252);     // texto secundario (5.3:1 sobre blanco)
+  --on-navy: oklch(0.97 0.008 240);   // texto sobre marino
+  --on-navy-dim: oklch(0.82 0.02 238);// texto secundario sobre marino
+
+  // ---- Azul acento (CTAs, links, íconos, estados activos) ----
+  --blue: oklch(0.54 0.15 250);       // acento principal — texto blanco encima (5.1:1)
+  --blue-strong: oklch(0.48 0.15 252);// hover de CTA sólido
+  --blue-bright: oklch(0.62 0.14 246);// detalle luminoso sobre navy
+  --blue-ink: oklch(0.45 0.13 252);   // links sobre blanco (6:1)
+
+  // ---- Estado funcional (solo validación de formulario, no es acento de marca) ----
+  --danger: oklch(0.55 0.16 26);
+  --danger-soft: oklch(0.96 0.03 26);
+
+  // ---- Líneas y velos ----
+  --line: oklch(0.34 0.05 250 / 0.14);
+  --line-soft: oklch(0.34 0.05 250 / 0.08);
+  --line-strong: oklch(0.34 0.05 250 / 0.24);
+  --line-on-navy: oklch(1 0 0 / 0.14);
+  --sky-veil: oklch(0.54 0.15 250 / 0.08);
+  --scrim: oklch(0.2 0.05 252 / 0.44);
+
+  // ---- Tipografía ----
+  //  Spectral (serif racional) para titulares — autoridad de consultorio
+  //  establecido. Hanken Grotesk (humanista) para cuerpo — cercano y legible.
+  --font-display: 'Spectral', Georgia, 'Times New Roman', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  // Escala fluida — ratio ~1.25, techo de display 5.6rem (no grita).
+  --fs-hero: clamp(2.7rem, 6.4vw, 5.4rem);
+  --fs-display: clamp(2.2rem, 4.8vw, 3.7rem);
+  --fs-h2: clamp(1.9rem, 3.8vw, 2.9rem);
+  --fs-h3: clamp(1.35rem, 2.2vw, 1.7rem);
+  --fs-lead: clamp(1.08rem, 1.3vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-sm: 0.9375rem;
+  --fs-label: 0.78rem;
+
+  // ---- Ritmo / espaciado ----
+  --section-y: clamp(4.5rem, 9vw, 8rem);
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --maxw: 78rem;
+  --maxw-narrow: 44rem;
+
+  // ---- Radios (contenidos: tarjetas 14–18px) ----
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+
+  // ---- Sombras (suaves, azules, nunca 1px-border + sombra ancha juntos) ----
+  --shadow-sm: 0 2px 10px -6px oklch(0.34 0.07 250 / 0.4);
+  --shadow-card: 0 22px 48px -30px oklch(0.3 0.08 252 / 0.55);
+  --shadow-float: 0 16px 36px -14px oklch(0.3 0.08 252 / 0.42);
+
+  // ---- Movimiento ----
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);      // ease-out-quint
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 0.18s;
+  --dur-2: 0.42s;
+  --dur-3: 0.72s;
+
+  // ---- Escala z-index semántica ----
+  --z-base: 1;
+  --z-raise: 10;
+  --z-sticky: 100;
+  --z-header: 300;
+  --z-skip: 400;
+}

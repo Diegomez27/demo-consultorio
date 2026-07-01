@@ -1,0 +1,55 @@
+<section class="faq section" id="faq">
+  <div class="shell faq__grid">
+    <aside class="faq__intro" data-reveal>
+      <p class="tag">
+        <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true">
+          <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Preguntas frecuentes
+      </p>
+      <h2 class="faq__title display">Resolvemos tus dudas antes de la cita</h2>
+      <p class="lead faq__lead">
+        Seguros, urgencias, planes de pago y peques. Si algo no está aquí, escríbenos y te
+        respondemos sin compromiso.
+      </p>
+      <a class="faq__link" [href]="whatsappLink" target="_blank" rel="noopener">
+        <app-icon class="faq__link-icon" name="whatsapp" />
+        Preguntar por WhatsApp
+      </a>
+    </aside>
+
+    <ul class="faq__list" data-reveal="90">
+      @for (item of faqs; track item.question; let i = $index) {
+        <li class="faq__item" [class.faq__item--open]="isOpen(i)">
+          <h3 class="faq__q">
+            <button
+              type="button"
+              class="faq__trigger"
+              [attr.aria-expanded]="isOpen(i)"
+              [attr.aria-controls]="'faq-panel-' + i"
+              [id]="'faq-trigger-' + i"
+              (click)="toggle(i)"
+            >
+              <span>{{ item.question }}</span>
+              <span class="faq__marker" aria-hidden="true">
+                <app-icon name="chevronDown" />
+              </span>
+            </button>
+          </h3>
+          <div
+            class="faq__panel"
+            [id]="'faq-panel-' + i"
+            role="region"
+            [attr.aria-labelledby]="'faq-trigger-' + i"
+            [attr.aria-hidden]="!isOpen(i)"
+            [attr.inert]="!isOpen(i) ? '' : null"
+          >
+            <div class="faq__answer">
+              <p>{{ item.answer }}</p>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

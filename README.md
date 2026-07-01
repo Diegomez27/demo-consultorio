@@ -1,0 +1,73 @@
+# Clínica Dental Alba — demo-consultorio
+
+Landing page para un consultorio dental ficticio, **Clínica Dental Alba**. Tercera landing del
+portafolio de Diego Gómez (Fase 6 del roadmap), con un registro visual limpio y clínico —
+deliberadamente distinto al calor rústico de `demo-cafe` y a la oscuridad urbana de `demo-barberia`.
+
+**Demo en vivo:** _(pendiente de deploy en Vercel)_
+
+## Qué demuestra
+
+Presencia web que transmite confianza profesional: una sola página, mobile-first, sin backend,
+enfocada en convertir visitas en solicitudes de cita.
+
+## Stack
+
+- **Angular 21** — standalone components, Signals, control flow `@if` / `@for`, zoneless.
+- **SCSS propio** con tokens de diseño en OKLCH. Sin librerías de UI ni de accordion.
+- **Reactive Forms** para el formulario de cita (validación en cliente).
+- **Deploy:** Vercel (`vercel.json` incluido).
+
+## Diseño
+
+- **Paleta (Committed):** blanco puro de fondo, azul marino para titulares y una banda
+  "drenched" (diferenciadores + footer), y un azul acento para CTAs, íconos y estados activos.
+  Sin colores fuera del azul; el rojo aparece solo como color funcional de validación.
+- **Tipografía:** **Spectral** (serif racional) en titulares para dar autoridad de consultorio
+  establecido + **Hanken Grotesk** (humanista) en cuerpo para cercanía y legibilidad.
+- **Motivo de firma:** el arco-sonrisa, repetido en el logo, las etiquetas de sección y como
+  textura de fondo de la banda navy.
+- **Fotografía moderada:** 1 hero, 1 imagen de tecnología, 3 retratos de equipo. Sin galería.
+- Iconos SVG de trazo propios (set coherente, sin emojis ni librerías).
+- Movimiento sobrio: reveal on scroll que respeta `prefers-reduced-motion` y nunca oculta
+  contenido si no hay JS.
+
+## Secciones
+
+Header · Hero · Servicios · Diferenciadores · Equipo · Formulario de cita · FAQ (accordion) · Footer con mapa.
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── features/     # hero, services, differentiators, team, appointment, faq, footer
+│   ├── shared/       # icon, logo, site-header, whatsapp-fab, reveal, unsplash, data, models
+│   ├── app.ts        # shell
+│   └── app.config.ts
+├── styles/           # _tokens · _reset · _base
+└── index.html
+```
+
+## Desarrollo
+
+```bash
+npm install
+npm start          # http://localhost:4200
+npm run build      # build de producción → dist/demo-consultorio/browser
+```
+
+## Criterios de "terminado"
+
+- [x] Se ve bien en 375px, 768px y 1280px (verificado).
+- [x] Accordion de FAQ funciona sin librería de terceros.
+- [x] Formulario valida campos obligatorios y muestra estado de éxito.
+- [x] Sin `console.log` ni errores en consola.
+- [x] Build de producción limpio (~66 kB transfer, dentro de presupuesto).
+- [ ] Lighthouse mobile ≥ 90 en Performance y Accessibility (validar tras deploy).
+
+## Notas
+
+- Es una demo: nombre, dirección, teléfonos, cédulas profesionales y reseñas son ilustrativos.
+- El formulario no envía datos a ningún backend; simula el envío y muestra el estado de éxito.
+- Imágenes servidas desde Unsplash con `srcset` responsivo; los IDs fueron verificados.

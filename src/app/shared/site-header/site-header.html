@@ -1,0 +1,48 @@
+<header class="header" [class.header--scrolled]="scrolled()" [class.header--open]="menuOpen()">
+  <div class="header__bar shell">
+    <a class="header__brand" href="#inicio" aria-label="Clínica Dental Alba — inicio" (click)="closeMenu()">
+      <app-logo />
+    </a>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      @for (link of links; track link.href) {
+        <a class="header__link" [href]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" [href]="'tel:' + clinic.phoneHref">
+        <span aria-hidden="true">☎</span> {{ clinic.phoneDisplay }}
+      </a>
+      <a class="btn btn--primary header__cta" href="#cita">Agendar cita</a>
+    </div>
+
+    <button
+      class="header__burger"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav"
+      (click)="toggleMenu()"
+    >
+      <span class="sr-only">{{ menuOpen() ? 'Cerrar menú' : 'Abrir menú' }}</span>
+      <span class="header__burger-lines" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </div>
+
+  <div class="header__panel" id="mobile-nav" [hidden]="!menuOpen()">
+    <nav class="header__panel-nav" aria-label="Navegación móvil">
+      @for (link of links; track link.href) {
+        <a class="header__panel-link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      }
+    </nav>
+    <div class="header__panel-actions">
+      <a class="btn btn--primary header__panel-cta" href="#cita" (click)="closeMenu()">Agendar cita</a>
+      <a class="header__panel-phone" [href]="'tel:' + clinic.phoneHref" (click)="closeMenu()">
+        Llamar {{ clinic.phoneDisplay }}
+      </a>
+    </div>
+  </div>
+</header>
+<div class="header__scrim" [hidden]="!menuOpen()" (click)="closeMenu()" aria-hidden="true"></div>

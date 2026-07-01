@@ -1,0 +1,49 @@
+<section class="diff section">
+  <div class="diff__arc" aria-hidden="true"></div>
+  <div class="shell diff__inner">
+    <div class="diff__media" data-reveal>
+      <figure class="diff__frame">
+        <img
+          [src]="imageSrc"
+          [attr.srcset]="imageSrcset"
+          sizes="(max-width: 60rem) 92vw, 42vw"
+          width="900"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+          alt="Dentista de Clínica Dental Alba mostrando a una paciente su radiografía digital en pantalla"
+        />
+      </figure>
+      <p class="diff__caption">
+        <app-icon class="diff__caption-icon" name="scan" />
+        Escáner intraoral y radiografía digital en cada consulta
+      </p>
+    </div>
+
+    <div class="diff__content">
+      <header class="diff__head" data-reveal>
+        <p class="tag tag--light">
+          <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true">
+            <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Por qué elegir Alba
+        </p>
+        <h2 class="diff__title display">La diferencia se nota antes de sentarte en el sillón</h2>
+      </header>
+
+      <ul class="diff__list">
+        @for (item of items; track item.title; let i = $index) {
+          <li class="diff__item" [data-reveal]="i * 80">
+            <span class="diff__icon">
+              <app-icon [name]="item.icon" />
+            </span>
+            <div class="diff__text">
+              <h3 class="diff__item-title">{{ item.title }}</h3>
+              <p class="diff__item-desc">{{ item.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

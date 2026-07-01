@@ -1,0 +1,228 @@
+.hero {
+  position: relative;
+  padding-top: calc(4.6rem + clamp(2rem, 6vw, 4.5rem));
+  padding-bottom: var(--section-y);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+// Velo azul suave detrás del contenido
+.hero__aura {
+  position: absolute;
+  inset: -20% 30% 30% -25%;
+  z-index: -2;
+  background: radial-gradient(
+    60% 60% at 30% 30%,
+    var(--sky-veil),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+// Arcos-sonrisa decorativos (motivo de marca) arriba a la derecha
+.hero__arc {
+  position: absolute;
+  top: 3.5rem;
+  right: -8%;
+  width: 46%;
+  height: auto;
+  color: var(--line-strong);
+  z-index: -1;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero__grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+// ---- Columna de texto ----
+.hero__tag {
+  margin-bottom: 1.4rem;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  max-width: 15ch;
+}
+
+.hero__accent {
+  color: var(--blue);
+  font-style: italic;
+}
+
+.hero__lead {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.1rem;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: clamp(1.25rem, 4vw, 2.75rem);
+  margin-top: 2.75rem;
+  padding-top: 1.9rem;
+  border-top: 1px solid var(--line);
+  width: fit-content;
+}
+
+.hero__stat dt {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  max-width: 9ch;
+}
+
+.hero__stat dd {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.hero__star {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--blue);
+}
+
+// ---- Columna de imagen ----
+.hero__media {
+  position: relative;
+}
+
+.hero__frame {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  aspect-ratio: 3 / 2.05;
+}
+
+.hero__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--line-soft);
+  pointer-events: none;
+}
+
+.hero__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Tarjeta flotante inferior izquierda
+.hero__badge {
+  position: absolute;
+  left: clamp(-0.5rem, -2vw, -1.4rem);
+  bottom: -1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: 17rem;
+  padding: 0.85rem 1.05rem;
+  background: var(--bg);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-float);
+}
+
+.hero__badge-icon {
+  display: inline-flex;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  background: var(--sky);
+  color: var(--blue-strong);
+}
+
+.hero__badge-icon app-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.hero__badge-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.hero__badge-text strong {
+  font-size: 0.92rem;
+  color: var(--navy);
+}
+
+// Chip superior derecha
+.hero__chip {
+  position: absolute;
+  top: -1.1rem;
+  right: clamp(-0.25rem, -1vw, -1rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 13rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--navy);
+  color: var(--on-navy);
+  border-radius: var(--r-pill);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.25;
+  box-shadow: var(--shadow-float);
+}
+
+.hero__chip-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  color: var(--blue-bright);
+}
+
+@media (min-width: 58rem) {
+  .hero__grid {
+    grid-template-columns: 1.02fr 0.98fr;
+  }
+
+  .hero__badge {
+    max-width: 18rem;
+  }
+}
+
+@media (max-width: 32rem) {
+  .hero__chip {
+    display: none;
+  }
+
+  .hero__badge {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 1.5rem);
+    max-width: none;
+  }
+
+  .hero__frame {
+    aspect-ratio: 4 / 3.4;
+  }
+}
