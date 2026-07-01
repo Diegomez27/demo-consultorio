@@ -1,8 +1,6 @@
 # Clínica Dental Alba — demo-consultorio
 
-Landing page para un consultorio dental ficticio, **Clínica Dental Alba**. Tercera landing del
-portafolio de Diego Gómez (Fase 6 del roadmap), con un registro visual limpio y clínico —
-deliberadamente distinto al calor rústico de `demo-cafe` y a la oscuridad urbana de `demo-barberia`.
+Landing page para un consultorio dental ficticio, **Clínica Dental Alba**. 
 
 **Demo en vivo:** _(pendiente de deploy en Vercel)_
 
@@ -57,17 +55,3 @@ npm start          # http://localhost:4200
 npm run build      # build de producción → dist/demo-consultorio/browser
 ```
 
-## Criterios de "terminado"
-
-- [x] Se ve bien en 375px, 768px y 1280px (verificado).
-- [x] Accordion de FAQ funciona sin librería de terceros.
-- [x] Formulario valida campos obligatorios y muestra estado de éxito.
-- [x] Sin `console.log` ni errores en consola.
-- [x] Build de producción limpio (~66 kB transfer, dentro de presupuesto).
-- [ ] Lighthouse mobile ≥ 90 en Performance y Accessibility (validar tras deploy).
-
-## Notas
-
-- Es una demo: nombre, dirección, teléfonos, cédulas profesionales y reseñas son ilustrativos.
-- El formulario no envía datos a ningún backend; simula el envío y muestra el estado de éxito.
-- Imágenes servidas desde Unsplash con `srcset` responsivo; los IDs fueron verificados.
