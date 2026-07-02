@@ -4,7 +4,7 @@
 
 .services__head {
   max-width: 40rem;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 
 .services__title {
@@ -27,7 +27,7 @@
   column-gap: 1.1rem;
   row-gap: 0.4rem;
   align-items: start;
-  padding: 1.5rem 0.9rem;
+  padding: 1rem 0.9rem;
   margin-inline: -0.9rem;
   border-bottom: 1px solid var(--line);
   border-radius: var(--r-sm);
@@ -95,7 +95,7 @@
     grid-template-columns: 2.75rem minmax(15rem, 0.85fr) 1.5fr auto;
     grid-template-areas: 'icon name desc note';
     column-gap: clamp(1.5rem, 3vw, 2.75rem);
-    padding-block: 1.9rem;
+    padding-block: 1.25rem;
   }
 
   .service__name {

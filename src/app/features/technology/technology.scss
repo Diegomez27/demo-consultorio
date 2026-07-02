@@ -21,7 +21,7 @@
 
 .tech__inner {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
   align-items: start;
 }
 
@@ -87,7 +87,7 @@
 // ---- Ficha técnica: filas con dato duro protagonista ----
 .tech__specs {
   display: grid;
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
   border-bottom: 1px solid var(--line-on-navy);
 }
 
@@ -96,7 +96,7 @@
   grid-template-columns: minmax(6.5rem, auto) 1fr;
   column-gap: clamp(1.25rem, 3vw, 2.25rem);
   align-items: start;
-  padding: 1.4rem 0;
+  padding: 0.95rem 0;
   border-top: 1px solid var(--line-on-navy);
 }
 

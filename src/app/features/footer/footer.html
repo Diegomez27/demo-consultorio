@@ -20,14 +20,14 @@
         </div>
       </div>
 
-      <nav class="footer__col" aria-label="Enlaces del sitio">
+      <!-- <nav class="footer__col" aria-label="Enlaces del sitio">
         <h3 class="footer__heading">Navegación</h3>
         <ul>
           @for (link of links; track link.href) {
             <li><a [href]="link.href">{{ link.label }}</a></li>
           }
         </ul>
-      </nav>
+      </nav> -->
 
       <div class="footer__col">
         <h3 class="footer__heading">Contacto</h3>
@@ -51,22 +51,18 @@
         <h3 class="footer__heading">Horarios</h3>
         <ul class="footer__hours">
           @for (h of clinic.hours; track h.day) {
-            <li>
-              <span class="footer__day">{{ h.day }}</span>
-              <span class="footer__time">{{ h.time }}</span>
-            </li>
+          <li>
+            <span class="footer__day">{{ h.day }}</span>
+            <span class="footer__time">{{ h.time }}</span>
+          </li>
           }
         </ul>
       </div>
     </div>
 
     <figure class="footer__map">
-      <iframe
-        [src]="mapUrl"
-        title="Mapa con la ubicación de Clínica Dental Alba en Guadalajara"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+      <iframe [src]="mapUrl" title="Mapa con la ubicación de Clínica Dental Alba en Guadalajara" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </figure>
   </div>
 

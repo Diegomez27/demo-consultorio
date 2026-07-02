@@ -78,6 +78,21 @@
 
 .header__cta {
   padding-block: 0.72rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out),
+    background-color var(--dur-1) var(--ease-out),
+    color var(--dur-1) var(--ease-out),
+    box-shadow var(--dur-2) var(--ease-out);
+}
+
+.header--scrolled .header__cta {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 // ---- Botón hamburguesa ----

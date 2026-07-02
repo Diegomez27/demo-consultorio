@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  padding-top: calc(4.6rem + clamp(1.75rem, 5vw, 3.75rem));
-  padding-bottom: var(--section-y);
+  padding-top: calc(4.6rem + clamp(1.2rem, 3.5vw, 2rem));
+  padding-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
   overflow: hidden;
   isolation: isolate;
 }
@@ -34,13 +34,15 @@
 
 .hero__tag {
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  margin-inline: auto;
 }
 
 // ---- Titular monumental: el nombre ES el hero ----
 .hero__title {
-  font-size: clamp(2.6rem, 10.5vw, 6rem);
+  font-size: var(--fs-hero);
   line-height: 0.98;
   letter-spacing: -0.025em;
+  text-align: center;
 }
 
 .hero__line {
@@ -51,26 +53,55 @@
 .hero__line--accent {
   color: var(--blue);
   font-style: italic;
-  margin-left: clamp(2.5rem, 18vw, 16rem);
+  margin-left: 0;
 }
 
 // ---- Cuerpo del hero: copy angosto / foto dominante (42/58) ----
 .hero__grid {
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
-  margin-top: clamp(2.25rem, 5vw, 3.75rem);
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
   align-items: end;
 }
 
 .hero__lead {
   max-width: 42ch;
+  margin-inline: auto;
 }
 
 .hero__cta {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2.1rem;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.hero__more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--blue-ink);
+  padding: 0.5rem 0.25rem;
+  transition: color var(--dur-1) var(--ease-out);
+
+  &:hover {
+    color: var(--blue-strong);
+
+    .hero__more-icon {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.hero__more-icon {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform var(--dur-1) var(--ease-out);
 }
 
 // ---- Media ----
@@ -151,9 +182,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1rem, 3vw, 2.5rem);
-  margin-top: clamp(3rem, 6vw, 4.75rem);
-  padding-top: clamp(1.4rem, 3vw, 2.1rem);
+  margin-top: clamp(1.75rem, 4.5vw, 3rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
   border-top: 1px solid var(--line);
+  text-align: center;
 }
 
 .hero__stat dt {
@@ -167,6 +199,7 @@
 .hero__stat dd {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 0.35rem;
   margin-top: 0.55rem;
   font-family: var(--font-display);
@@ -185,8 +218,24 @@
 }
 
 @media (min-width: 58rem) {
+  .hero {
+    text-align: left;
+  }
+
+  .hero__tag {
+    margin-inline: 0;
+  }
+
+  .hero__title {
+    text-align: left;
+  }
+
+  .hero__line--accent {
+    margin-left: clamp(2.5rem, 18vw, 16rem);
+  }
+
   .hero__grid {
-    grid-template-columns: 0.72fr 1.28fr;
+    grid-template-columns: 1.05fr 0.95fr;
   }
 
   // La foto sangra hasta el borde derecho: composición asimétrica
@@ -197,6 +246,22 @@
   .hero__frame {
     border-radius: var(--r-xl) 0 0 var(--r-xl);
     aspect-ratio: 16 / 9;
+  }
+
+  .hero__lead {
+    margin-inline: 0;
+  }
+
+  .hero__cta {
+    justify-content: flex-start;
+  }
+
+  .hero__stats {
+    text-align: left;
+  }
+
+  .hero__stat dd {
+    justify-content: flex-start;
   }
 }
 

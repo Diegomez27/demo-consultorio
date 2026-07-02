@@ -19,7 +19,7 @@ export class Faq {
   );
 
   /** Índice del panel abierto (-1 = todos cerrados). Accordion de apertura única. */
-  readonly openIndex = signal(0);
+  readonly openIndex = signal(-1);
 
   toggle(index: number): void {
     this.openIndex.update((current) => (current === index ? -1 : index));
