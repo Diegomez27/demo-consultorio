@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Appointment } from './features/appointment/appointment';
-import { Differentiators } from './features/differentiators/differentiators';
+import { Contact } from './features/contact/contact';
 import { Faq } from './features/faq/faq';
 import { Footer } from './features/footer/footer';
 import { Hero } from './features/hero/hero';
 import { Services } from './features/services/services';
-import { Team } from './features/team/team';
+import { Technology } from './features/technology/technology';
+import { Testimonials } from './features/testimonials/testimonials';
 import { SiteHeader } from './shared/site-header/site-header';
 import { WhatsappFab } from './shared/whatsapp-fab/whatsapp-fab';
 
@@ -16,10 +16,10 @@ import { WhatsappFab } from './shared/whatsapp-fab/whatsapp-fab';
     SiteHeader,
     Hero,
     Services,
-    Differentiators,
-    Team,
-    Appointment,
+    Technology,
+    Testimonials,
     Faq,
+    Contact,
     Footer,
     WhatsappFab,
   ],

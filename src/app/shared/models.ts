@@ -8,21 +8,20 @@ export interface Service {
   note: string;
 }
 
-export interface Differentiator {
-  icon: IconName;
-  title: string;
+export interface TechSpec {
+  name: string;
+  /** Dato duro protagonista de la fila ("3 min", "−90%"). */
+  stat: string;
+  /** Qué significa el dato ("por arcada, sin moldes"). */
+  statLabel: string;
   description: string;
 }
 
-export interface Dentist {
+export interface Testimonial {
+  quote: string;
   name: string;
-  role: string;
-  /** Cédula profesional (ficticia). */
-  license: string;
-  imageId: string;
-  /** Foco clínico en 2–3 etiquetas cortas. */
-  focus: string[];
-  alt: string;
+  /** Tratamiento que respalda la opinión. */
+  treatment: string;
 }
 
 export interface FaqItem {

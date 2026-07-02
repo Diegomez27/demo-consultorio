@@ -4,7 +4,7 @@
 
 .services__head {
   max-width: 40rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .services__title {
@@ -12,37 +12,37 @@
   margin: 1rem 0 1.1rem;
 }
 
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
-  gap: clamp(1rem, 2vw, 1.35rem);
+// ---- Índice de tratamientos: filas editoriales, no cards ----
+.services__list {
+  border-top: 1px solid var(--line);
 }
 
 .service {
-  display: flex;
-  flex-direction: column;
-  padding: clamp(1.5rem, 2.5vw, 1.9rem);
-  background: var(--surface);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r-lg);
-  transition:
-    transform var(--dur-2) var(--ease-out),
-    border-color var(--dur-2) var(--ease-out),
-    box-shadow var(--dur-2) var(--ease-out),
-    background-color var(--dur-2) var(--ease-out);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'icon name'
+    'icon desc'
+    'icon note';
+  column-gap: 1.1rem;
+  row-gap: 0.4rem;
+  align-items: start;
+  padding: 1.5rem 0.9rem;
+  margin-inline: -0.9rem;
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  transition: background-color var(--dur-2) var(--ease-out);
 }
 
 .service:hover {
-  transform: translateY(-4px);
-  background: var(--bg);
-  border-color: var(--line);
-  box-shadow: var(--shadow-card);
+  background: var(--sky-soft);
 }
 
 .service__icon {
+  grid-area: icon;
   display: inline-flex;
-  width: 3.1rem;
-  height: 3.1rem;
+  width: 2.75rem;
+  height: 2.75rem;
   align-items: center;
   justify-content: center;
   border-radius: var(--r-md);
@@ -54,8 +54,8 @@
 }
 
 .service__icon app-icon {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .service:hover .service__icon {
@@ -64,33 +64,48 @@
 }
 
 .service__name {
-  font-size: var(--fs-h3);
-  margin: 1.15rem 0 0.6rem;
+  grid-area: name;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  line-height: 1.1;
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.service:hover .service__name {
+  color: var(--blue-ink);
 }
 
 .service__desc {
+  grid-area: desc;
   font-size: 0.96rem;
   color: var(--ink-soft);
   line-height: 1.55;
-  flex: 1;
+  max-width: 54ch;
 }
 
 .service__note {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line-soft);
+  grid-area: note;
+  margin-top: 0.35rem;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--blue-ink);
 }
 
-.service__dot {
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: var(--blue);
-  flex: none;
+@media (min-width: 60rem) {
+  .service {
+    grid-template-columns: 2.75rem minmax(15rem, 0.85fr) 1.5fr auto;
+    grid-template-areas: 'icon name desc note';
+    column-gap: clamp(1.5rem, 3vw, 2.75rem);
+    padding-block: 1.9rem;
+  }
+
+  .service__name {
+    margin-top: 0.15rem;
+  }
+
+  .service__note {
+    margin-top: 0.4rem;
+    justify-self: end;
+    text-align: right;
+    max-width: 16rem;
+  }
 }

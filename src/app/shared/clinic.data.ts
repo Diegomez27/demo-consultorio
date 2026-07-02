@@ -1,4 +1,4 @@
-import { Dentist, Differentiator, FaqItem, Service } from './models';
+import { FaqItem, Service, Testimonial, TechSpec } from './models';
 
 // Datos de la clínica ficticia "Clínica Dental Alba" (Guadalajara, MX).
 // Contenido de demostración — cualquier dato de contacto es ilustrativo.
@@ -9,6 +9,8 @@ export const CLINIC = {
   tagline: 'Odontología integral',
   city: 'Guadalajara, Jalisco',
   cityShort: 'Guadalajara',
+  neighborhood: 'Col. Americana',
+  founded: 2012,
   address: 'Av. Chapultepec Sur 210, Col. Americana, 44160 Guadalajara, Jal.',
   phoneDisplay: '33 1234 5678',
   phoneHref: '+523312345678',
@@ -84,57 +86,59 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export const DIFFERENTIATORS: Differentiator[] = [
+// Ficha técnica del equipamiento: cada fila lleva un dato duro protagonista.
+// Los datos son ilustrativos pero verosímiles para el equipamiento descrito.
+export const TECH_SPECS: TechSpec[] = [
   {
-    icon: 'heartHand',
-    title: 'Atención personalizada',
+    name: 'Escáner intraoral 3D',
+    stat: '3 min',
+    statLabel: 'por arcada, sin moldes ni pastas',
     description:
-      'Un mismo dentista te acompaña de principio a fin. Te explicamos cada paso antes de tocarte un diente.',
+      'Impresión digital completa de tu boca. Ves tu caso en pantalla el mismo día de la valoración.',
   },
   {
-    icon: 'certificate',
-    title: 'Equipo certificado',
+    name: 'Radiografía digital',
+    stat: '−90%',
+    statLabel: 'de radiación frente a la placa convencional',
     description:
-      'Especialistas con cédula profesional y formación continua en las técnicas que aplican.',
+      'Imagen inmediata y archivada en tu expediente. Sin revelado, sin repeticiones innecesarias.',
   },
   {
-    icon: 'scan',
-    title: 'Tecnología digital',
+    name: 'Cirugía guiada por computadora',
+    stat: '0.1 mm',
+    statLabel: 'de margen en la colocación de implantes',
     description:
-      'Escáner intraoral 3D y radiografía digital: menos radiación, diagnósticos precisos y sin moldes incómodos.',
+      'El implante se planifica sobre tu tomografía y se coloca con guía impresa. Menos invasión, mejor recuperación.',
   },
   {
-    icon: 'clock',
-    title: 'Horarios flexibles',
+    name: 'Plan de tratamiento visualizado',
+    stat: '100%',
+    statLabel: 'del presupuesto por escrito antes de empezar',
     description:
-      'Abrimos temprano y hasta la noche entre semana, y sábados por la mañana. Urgencias con cita el domingo.',
+      'Simulación del resultado y desglose de costos firmado. Tú decides con toda la información.',
   },
 ];
 
-export const DENTISTS: Dentist[] = [
+// Opiniones ficticias verosímiles — respaldan el mensaje de equipo
+// certificado y trato cercano que antes cargaban "equipo" y "diferenciadores".
+export const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Dra. Renata Alba',
-    role: 'Directora · Ortodoncia',
-    license: 'Céd. Prof. 7 481 209',
-    imageId: 'photo-1594824476967-48c8b964273f',
-    focus: ['Ortodoncia', 'Alineadores', 'Estética'],
-    alt: 'Dra. Renata Alba, directora de la clínica, sonriendo con uniforme clínico turquesa',
+    quote:
+      'Me enseñaron el escaneo de mi boca en pantalla y me explicaron el plan completo antes de tocarme un diente. Nunca había entendido tan bien un presupuesto dental.',
+    name: 'Mariana G.',
+    treatment: 'Ortodoncia con alineadores',
   },
   {
-    name: 'Dr. Mateo Fuentes',
-    role: 'Implantología y cirugía oral',
-    license: 'Céd. Prof. 8 902 517',
-    imageId: 'photo-1622253692010-333f2da6031d',
-    focus: ['Implantes', 'Cirugía guiada', 'Endodoncia'],
-    alt: 'Dr. Mateo Fuentes, especialista en implantes, con uniforme azul y estetoscopio',
+    quote:
+      'Llegué con pánico por una endodoncia y salí preguntándome de qué me había preocupado tanto.',
+    name: 'Sebastián M.',
+    treatment: 'Endodoncia',
   },
   {
-    name: 'Dra. Camila Ortiz',
-    role: 'Odontología pediátrica y estética',
-    license: 'Céd. Prof. 9 316 044',
-    imageId: 'photo-1651008376811-b90baee60c1f',
-    focus: ['Pediátrica', 'Blanqueamiento', 'Prevención'],
-    alt: 'Dra. Camila Ortiz, odontopediatra, sonriendo con saco claro',
+    quote:
+      'Llevo a mis dos hijos desde hace tres años. La doctora los conoce por su nombre y ellos van contentos al dentista.',
+    name: 'Ana María S.',
+    treatment: 'Odontología pediátrica',
   },
 ];
 
@@ -147,7 +151,7 @@ export const FAQS: FaqItem[] = [
   {
     question: '¿Necesito cita previa o puedo llegar directo?',
     answer:
-      'Atendemos con cita para dedicarte el tiempo completo sin esperas. Puedes agendar por el formulario de esta página, por WhatsApp o por teléfono; te confirmamos el mismo día.',
+      'Atendemos con cita para dedicarte el tiempo completo sin esperas. Puedes agendar por WhatsApp, por teléfono o desde el botón "Agendar cita" de esta página; te confirmamos el mismo día.',
   },
   {
     question: '¿Qué hago ante una urgencia dental?',
@@ -169,16 +173,4 @@ export const FAQS: FaqItem[] = [
     answer:
       'La valoración inicial incluye revisión completa, diagnóstico y plan de tratamiento con presupuesto claro. Al agendar te decimos el costo exacto según lo que necesites; no hay cargos sorpresa.',
   },
-];
-
-// Opciones del select de servicio en el formulario de cita.
-export const SERVICE_OPTIONS: string[] = [
-  'Valoración general',
-  'Limpieza dental',
-  'Blanqueamiento',
-  'Ortodoncia',
-  'Implantes',
-  'Endodoncia',
-  'Odontología pediátrica',
-  'Urgencia',
 ];

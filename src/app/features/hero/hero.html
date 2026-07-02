@@ -1,83 +1,90 @@
 <section class="hero" id="inicio">
   <div class="hero__aura" aria-hidden="true"></div>
-  <svg class="hero__arc" viewBox="0 0 600 200" fill="none" aria-hidden="true" preserveAspectRatio="none">
+  <svg
+    class="hero__arc"
+    viewBox="0 0 600 200"
+    fill="none"
+    aria-hidden="true"
+    preserveAspectRatio="none"
+    appSmileDraw="load"
+  >
     <path d="M-20 40C160 200 440 200 620 40" stroke="currentColor" stroke-width="1.5" />
     <path d="M-20 76C160 236 440 236 620 76" stroke="currentColor" stroke-width="1.5" opacity="0.5" />
   </svg>
 
-  <div class="shell hero__grid">
-    <div class="hero__copy" data-reveal>
-      <p class="tag hero__tag">
-        <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true">
-          <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        Odontología integral · {{ clinic.cityShort }}
-      </p>
+  <div class="shell">
+    <p class="tag hero__tag" data-reveal>
+      <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true" appSmileDraw>
+        <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      Desde {{ clinic.founded }} · {{ clinic.cityShort }}
+    </p>
 
-      <h1 class="hero__title display">
-        Ven al dentista <span class="hero__accent">sin pensarlo dos veces</span>.
-      </h1>
+    <h1 class="hero__title display">
+      <span class="hero__line" data-reveal="80">Clínica Dental</span>
+      <span class="hero__line hero__line--accent" data-reveal="180">Alba</span>
+    </h1>
 
-      <p class="lead hero__lead">
-        En {{ clinic.name }} unimos escaneo 3D y radiografía digital con un trato cercano:
-        diagnóstico claro, presupuesto por escrito y cero sorpresas. Tú decides con toda la información.
-      </p>
+    <div class="hero__grid">
+      <div class="hero__copy" data-reveal="300">
+        <p class="lead hero__lead">
+          Odontología integral con escaneo 3D y radiografía digital en la
+          {{ clinic.neighborhood }}: diagnóstico claro, presupuesto por escrito y cero sorpresas.
+        </p>
 
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="#cita">
-          Agendar cita
-          <app-icon class="btn__icon" name="arrowRight" />
-        </a>
-        <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#contacto">
+            Agendar cita
+            <app-icon class="btn__icon" name="arrowRight" />
+          </a>
+          <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+        </div>
       </div>
 
-      <dl class="hero__stats">
-        <div class="hero__stat">
-          <dt>Años cuidando sonrisas</dt>
-          <dd>{{ clinic.stats.years }}</dd>
-        </div>
-        <div class="hero__stat">
-          <dt>Pacientes atendidos</dt>
-          <dd>{{ clinic.stats.patients }}</dd>
-        </div>
-        <div class="hero__stat">
-          <dt>Valoración de pacientes</dt>
-          <dd>
-            {{ clinic.stats.rating }}
-            <app-icon class="hero__star" name="star" />
-          </dd>
-        </div>
-      </dl>
-    </div>
+      <div class="hero__media" data-reveal="220">
+        <figure class="hero__frame">
+          <img
+            [src]="heroSrc"
+            [attr.srcset]="heroSrcset"
+            sizes="(max-width: 900px) 92vw, 58vw"
+            width="1080"
+            height="720"
+            fetchpriority="high"
+            decoding="async"
+            alt="Consultorio de Clínica Dental Alba: sala luminosa con sillón dental turquesa y equipo moderno"
+          />
+        </figure>
 
-    <div class="hero__media" data-reveal="120">
-      <figure class="hero__frame">
-        <img
-          [src]="heroSrc"
-          [attr.srcset]="heroSrcset"
-          sizes="(max-width: 900px) 92vw, 52vw"
-          width="1080"
-          height="720"
-          fetchpriority="high"
-          decoding="async"
-          alt="Consultorio de Clínica Dental Alba: sala luminosa con sillón dental turquesa y equipo moderno"
-        />
-      </figure>
-
-      <div class="hero__badge">
-        <span class="hero__badge-icon">
-          <app-icon name="scan" />
-        </span>
-        <span class="hero__badge-text">
-          <strong>Escaneo intraoral 3D</strong>
-          Sin moldes ni pastas incómodas
-        </span>
-      </div>
-
-      <div class="hero__chip">
-        <app-icon class="hero__chip-icon" name="shieldCheck" />
-        Consulta de valoración con plan de tratamiento
+        <div class="hero__badge">
+          <span class="hero__badge-icon">
+            <app-icon name="scan" />
+          </span>
+          <span class="hero__badge-text">
+            <strong>Escaneo intraoral 3D</strong>
+            Sin moldes ni pastas incómodas
+          </span>
+        </div>
       </div>
     </div>
+
+    <dl class="hero__stats" data-reveal="380">
+      <div class="hero__stat">
+        <dt>Años cuidando sonrisas</dt>
+        <dd><span #statYears>{{ clinic.stats.years }}</span></dd>
+      </div>
+      <div class="hero__stat">
+        <dt>Pacientes atendidos</dt>
+        <dd>
+          <span><span #statPatients>{{ patientsDisplay }}</span>{{ patientsSuffix }}</span>
+        </dd>
+      </div>
+      <div class="hero__stat">
+        <dt>Valoración de pacientes</dt>
+        <dd>
+          <span #statRating>{{ clinic.stats.rating }}</span>
+          <app-icon class="hero__star" name="star" />
+        </dd>
+      </div>
+    </dl>
   </div>
 </section>

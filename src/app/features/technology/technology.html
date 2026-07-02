@@ -1,0 +1,54 @@
+<section class="tech section" id="tecnologia">
+  <div class="tech__arc" aria-hidden="true"></div>
+  <div class="shell tech__inner">
+    <div class="tech__media" data-reveal>
+      <figure class="tech__frame">
+        <img
+          [src]="imageSrc"
+          [attr.srcset]="imageSrcset"
+          sizes="(max-width: 60rem) 92vw, 38vw"
+          width="900"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+          alt="Dentista de Clínica Dental Alba mostrando a una paciente su radiografía digital en pantalla"
+        />
+      </figure>
+      <p class="tech__caption">
+        <app-icon class="tech__caption-icon" name="scan" />
+        Tu diagnóstico, en pantalla y en tu expediente el mismo día
+      </p>
+    </div>
+
+    <div class="tech__content">
+      <header class="tech__head" data-reveal>
+        <p class="tag tag--light">
+          <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true" appSmileDraw>
+            <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Ficha técnica
+        </p>
+        <h2 class="tech__title display">Con qué trabajamos, en números</h2>
+        <p class="tech__lead">
+          Nada de "última tecnología" a secas: esto es lo que hay en el consultorio y lo que
+          cambia para ti en cada consulta.
+        </p>
+      </header>
+
+      <dl class="tech__specs">
+        @for (spec of specs; track spec.name; let i = $index) {
+          <div class="tech__row" [data-reveal]="i * 80">
+            <dt class="tech__stat">
+              <span class="tech__stat-value">{{ spec.stat }}</span>
+              <span class="tech__stat-label">{{ spec.statLabel }}</span>
+            </dt>
+            <dd class="tech__detail">
+              <h3 class="tech__name">{{ spec.name }}</h3>
+              <p class="tech__desc">{{ spec.description }}</p>
+            </dd>
+          </div>
+        }
+      </dl>
+    </div>
+  </div>
+</section>

@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CLINIC, FAQS, whatsappUrl } from '../../shared/clinic.data';
 import { Icon } from '../../shared/icon/icon';
 import { RevealOnScroll } from '../../shared/reveal-on-scroll';
+import { SmileDraw } from '../../shared/smile-draw';
 
 @Component({
   selector: 'app-faq',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Icon, RevealOnScroll],
+  imports: [Icon, RevealOnScroll, SmileDraw],
   templateUrl: './faq.html',
   styleUrl: './faq.scss',
 })

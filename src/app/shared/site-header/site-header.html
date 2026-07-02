@@ -14,7 +14,7 @@
       <a class="header__phone" [href]="'tel:' + clinic.phoneHref">
         <span aria-hidden="true">☎</span> {{ clinic.phoneDisplay }}
       </a>
-      <a class="btn btn--primary header__cta" href="#cita">Agendar cita</a>
+      <a class="btn btn--primary header__cta" href="#contacto">Agendar cita</a>
     </div>
 
     <button
@@ -38,7 +38,7 @@
       }
     </nav>
     <div class="header__panel-actions">
-      <a class="btn btn--primary header__panel-cta" href="#cita" (click)="closeMenu()">Agendar cita</a>
+      <a class="btn btn--primary header__panel-cta" href="#contacto" (click)="closeMenu()">Agendar cita</a>
       <a class="header__panel-phone" [href]="'tel:' + clinic.phoneHref" (click)="closeMenu()">
         Llamar {{ clinic.phoneDisplay }}
       </a>

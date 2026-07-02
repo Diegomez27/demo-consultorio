@@ -26,9 +26,9 @@ export class SiteHeader {
   readonly links: NavLink[] = [
     { label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Equipo', href: '#equipo' },
+    { label: 'Tecnología', href: '#tecnologia' },
+    { label: 'Opiniones', href: '#opiniones' },
     { label: 'Preguntas', href: '#faq' },
-    { label: 'Contacto', href: '#cita' },
   ];
 
   readonly scrolled = signal(false);

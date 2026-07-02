@@ -17,9 +17,10 @@ export class Footer {
 
   readonly links = [
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Equipo', href: '#equipo' },
+    { label: 'Tecnología', href: '#tecnologia' },
+    { label: 'Opiniones', href: '#opiniones' },
     { label: 'Preguntas frecuentes', href: '#faq' },
-    { label: 'Agendar cita', href: '#cita' },
+    { label: 'Agendar cita', href: '#contacto' },
   ];
 
   readonly mapUrl: SafeResourceUrl;

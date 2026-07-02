@@ -1,0 +1,36 @@
+<section class="reviews section" id="opiniones">
+  <div class="shell">
+    <header class="reviews__head" data-reveal>
+      <p class="tag">
+        <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true" appSmileDraw>
+          <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Lo que cuentan al salir
+      </p>
+      <h2 class="reviews__title display">
+        {{ clinic.stats.rating }} de valoración media, explicada por quienes la dan
+      </h2>
+    </header>
+
+    <div class="reviews__grid">
+      @for (t of testimonials; track t.name; let i = $index) {
+        <figure class="review" [data-reveal]="i * 110">
+          <svg
+            class="review__arc"
+            viewBox="0 0 22 11"
+            fill="none"
+            aria-hidden="true"
+            appSmileDraw
+          >
+            <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <blockquote class="review__quote">{{ t.quote }}</blockquote>
+          <figcaption class="review__meta">
+            <span class="review__name">{{ t.name }}</span>
+            <span class="review__treatment">{{ t.treatment }}</span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>

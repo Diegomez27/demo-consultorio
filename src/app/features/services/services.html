@@ -2,7 +2,7 @@
   <div class="shell">
     <header class="services__head" data-reveal>
       <p class="tag">
-        <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true">
+        <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true" appSmileDraw>
           <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
         Lo que hacemos
@@ -14,18 +14,15 @@
       </p>
     </header>
 
-    <ul class="services__grid">
+    <ul class="services__list">
       @for (service of services; track service.name; let i = $index) {
-        <li class="service" [data-reveal]="i * 70">
+        <li class="service" [data-reveal]="i * 60">
           <span class="service__icon">
             <app-icon [name]="service.icon" />
           </span>
           <h3 class="service__name">{{ service.name }}</h3>
           <p class="service__desc">{{ service.description }}</p>
-          <p class="service__note">
-            <span class="service__dot" aria-hidden="true"></span>
-            {{ service.note }}
-          </p>
+          <p class="service__note">{{ service.note }}</p>
         </li>
       }
     </ul>

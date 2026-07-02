@@ -1,0 +1,34 @@
+<section class="cta section" id="contacto">
+  <div class="cta__arc" aria-hidden="true"></div>
+  <div class="shell cta__inner" data-reveal>
+    <p class="tag tag--light cta__tag">
+      <svg class="tag__arc" viewBox="0 0 22 11" fill="none" aria-hidden="true" appSmileDraw>
+        <path d="M2 3c3 6 15 6 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      Agenda tu cita
+    </p>
+
+    <h2 class="cta__title display">Ven al dentista sin pensarlo dos veces.</h2>
+
+    <p class="cta__lead">
+      Escríbenos o llámanos y te confirmamos el mismo día. Un mismo dentista te acompaña
+      de principio a fin, y el presupuesto siempre va por escrito.
+    </p>
+
+    <div class="cta__actions">
+      <a class="btn btn--on-navy" [href]="whatsappLink" target="_blank" rel="noopener">
+        <app-icon class="btn__icon" name="whatsapp" />
+        Agendar por WhatsApp
+      </a>
+      <a class="btn btn--ghost-navy" [href]="'tel:' + clinic.phoneHref">
+        <app-icon class="btn__icon" name="phone" />
+        Llamar {{ clinic.phoneDisplay }}
+      </a>
+    </div>
+
+    <p class="cta__hours">
+      <app-icon class="cta__hours-icon" name="clock" />
+      {{ hoursLine }}
+    </p>
+  </div>
+</section>

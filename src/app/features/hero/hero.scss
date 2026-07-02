@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding-top: calc(4.6rem + clamp(2rem, 6vw, 4.5rem));
+  padding-top: calc(4.6rem + clamp(1.75rem, 5vw, 3.75rem));
   padding-bottom: var(--section-y);
   overflow: hidden;
   isolation: isolate;
@@ -19,43 +19,51 @@
   pointer-events: none;
 }
 
-// Arcos-sonrisa decorativos (motivo de marca) arriba a la derecha
+// Arcos-sonrisa (motivo de marca): grandes, cruzan detrás del titular
 .hero__arc {
   position: absolute;
-  top: 3.5rem;
-  right: -8%;
-  width: 46%;
+  top: clamp(3.5rem, 9vw, 6.5rem);
+  right: -14%;
+  width: 72%;
   height: auto;
-  color: var(--line-strong);
+  color: var(--blue-bright);
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.24;
   pointer-events: none;
 }
 
-.hero__grid {
-  display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
-  align-items: center;
-}
-
-// ---- Columna de texto ----
 .hero__tag {
-  margin-bottom: 1.4rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
+// ---- Titular monumental: el nombre ES el hero ----
 .hero__title {
-  font-size: var(--fs-hero);
-  max-width: 15ch;
+  font-size: clamp(2.6rem, 10.5vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
 }
 
-.hero__accent {
+.hero__line {
+  display: block;
+}
+
+// "Alba" en diagonal: desplazada a la derecha, itálica y en acento
+.hero__line--accent {
   color: var(--blue);
   font-style: italic;
+  margin-left: clamp(2.5rem, 18vw, 16rem);
+}
+
+// ---- Cuerpo del hero: copy angosto / foto dominante (42/58) ----
+.hero__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-top: clamp(2.25rem, 5vw, 3.75rem);
+  align-items: end;
 }
 
 .hero__lead {
-  margin-top: 1.5rem;
-  max-width: 46ch;
+  max-width: 42ch;
 }
 
 .hero__cta {
@@ -65,43 +73,7 @@
   margin-top: 2.1rem;
 }
 
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: clamp(1.25rem, 4vw, 2.75rem);
-  margin-top: 2.75rem;
-  padding-top: 1.9rem;
-  border-top: 1px solid var(--line);
-  width: fit-content;
-}
-
-.hero__stat dt {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.01em;
-  max-width: 9ch;
-}
-
-.hero__stat dd {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.35rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1;
-}
-
-.hero__star {
-  width: 1.1rem;
-  height: 1.1rem;
-  color: var(--blue);
-}
-
-// ---- Columna de imagen ----
+// ---- Media ----
 .hero__media {
   position: relative;
 }
@@ -111,7 +83,7 @@
   border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  aspect-ratio: 3 / 2.05;
+  aspect-ratio: 3 / 2;
 }
 
 .hero__frame::after {
@@ -174,47 +146,61 @@
   color: var(--navy);
 }
 
-// Chip superior derecha
-.hero__chip {
-  position: absolute;
-  top: -1.1rem;
-  right: clamp(-0.25rem, -1vw, -1rem);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 13rem;
-  padding: 0.6rem 0.9rem;
-  background: var(--navy);
-  color: var(--on-navy);
-  border-radius: var(--r-pill);
-  font-size: 0.78rem;
-  font-weight: 500;
-  line-height: 1.25;
-  box-shadow: var(--shadow-float);
+// ---- Stats a todo lo ancho: cifras grandes de cabecera editorial ----
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: clamp(3rem, 6vw, 4.75rem);
+  padding-top: clamp(1.4rem, 3vw, 2.1rem);
+  border-top: 1px solid var(--line);
 }
 
-.hero__chip-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex: none;
-  color: var(--blue-bright);
+.hero__stat dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero__stat dd {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__star {
+  width: clamp(1.1rem, 2vw, 1.5rem);
+  height: clamp(1.1rem, 2vw, 1.5rem);
+  align-self: center;
+  color: var(--blue);
 }
 
 @media (min-width: 58rem) {
   .hero__grid {
-    grid-template-columns: 1.02fr 0.98fr;
+    grid-template-columns: 0.72fr 1.28fr;
   }
 
-  .hero__badge {
-    max-width: 18rem;
+  // La foto sangra hasta el borde derecho: composición asimétrica
+  .hero__media {
+    margin-right: calc(var(--gutter) * -1);
+  }
+
+  .hero__frame {
+    border-radius: var(--r-xl) 0 0 var(--r-xl);
+    aspect-ratio: 16 / 9;
   }
 }
 
 @media (max-width: 32rem) {
-  .hero__chip {
-    display: none;
-  }
-
   .hero__badge {
     left: 50%;
     transform: translateX(-50%);
@@ -223,6 +209,10 @@
   }
 
   .hero__frame {
-    aspect-ratio: 4 / 3.4;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero__stat dt {
+    letter-spacing: 0.03em;
   }
 }
