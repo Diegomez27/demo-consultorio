@@ -37,9 +37,9 @@
             Agendar cita
             <app-icon class="btn__icon" name="arrowRight" />
           </a>
-          <a class="hero__more-link" href="#servicios">
-            Ver servicios
-            <app-icon class="hero__more-icon" name="arrowRight" />
+          <a class="hero__call" [href]="'tel:' + clinic.phoneHref">
+            <app-icon class="hero__call-icon" name="phone" />
+            Llamar ahora
           </a>
         </div>
       </div>
