@@ -2,7 +2,7 @@
 
 Landing page para un consultorio dental ficticio, **Clínica Dental Alba**. 
 
-**Demo en vivo:** _(pendiente de deploy en Vercel)_
+**Demo en vivo:** [consultorio.diego-gomez-desarrollo-web.com](https://consultorio.diego-gomez-desarrollo-web.com/)
 
 ## Qué demuestra
 
