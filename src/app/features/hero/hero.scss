@@ -73,15 +73,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
   margin-top: 1.5rem;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+
+  @media (min-width: 32rem) {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    max-width: none;
+    margin-inline: 0;
+  }
 }
 
 // El CTA primario del hero pesa más que el .btn--primary base: sombra de
 // tarjeta en reposo y leve escala al hover, para dominar sobre el chip.
 .hero__cta .btn--primary {
-  padding: 1rem 1.7rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
   box-shadow: var(--shadow-card);
 
   &:hover {
@@ -92,6 +106,12 @@
   &:active {
     transform: translateY(1px);
   }
+
+  @media (min-width: 32rem) {
+    padding: 1rem 1.7rem;
+    font-size: 0.98rem;
+    flex: none;
+  }
 }
 
 // Chip de contacto directo: pill de contorno, deliberadamente distinto del
@@ -99,15 +119,19 @@
 .hero__call {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.35rem;
+  padding: 0.85rem 1rem;
   border: 1.5px solid var(--blue);
   border-radius: var(--r-pill);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1;
   color: var(--blue-ink);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
   transition:
     background-color var(--dur-1) var(--ease-out),
     color var(--dur-1) var(--ease-out),
@@ -117,6 +141,12 @@
     background: var(--sky);
     border-color: var(--blue-strong);
     color: var(--blue-strong);
+  }
+
+  @media (min-width: 32rem) {
+    padding: 0.8rem 1.35rem;
+    font-size: 0.95rem;
+    flex: none;
   }
 }
 
